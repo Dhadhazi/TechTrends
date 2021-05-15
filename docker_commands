@@ -18,11 +18,11 @@ docker logs 96b20
    Use a production WSGI server instead.
  * Debug mode: off
 INFO:werkzeug: * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
-INFO:werkzeug:172.17.0.1 - - [15/May/2021 12:55:42] "GET / HTTP/1.1" 200 -
-INFO:app:About page accessed
-INFO:werkzeug:172.17.0.1 - - [15/May/2021 12:55:44] "GET /about HTTP/1.1" 200 -
-INFO:werkzeug:172.17.0.1 - - [15/May/2021 12:55:45] "GET / HTTP/1.1" 200 -
-INFO:app:Article acccessed: 1
-INFO:werkzeug:172.17.0.1 - - [15/May/2021 12:55:46] "GET /1 HTTP/1.1" 200 -
-ERROR:app:Failed article access: 16465
-INFO:werkzeug:172.17.0.1 - - [15/May/2021 12:55:49] "GET /16465 HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [15/May/2021 13:04:37] "GET / HTTP/1.1" 200 -
+INFO:app:15-May-2021 (13:04:39.516610) About page accessed
+INFO:werkzeug:172.17.0.1 - - [15/May/2021 13:04:39] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [15/May/2021 13:04:41] "GET / HTTP/1.1" 200 -
+INFO:app:15-May-2021 (13:04:42.540410) Article acccessed: 1
+INFO:werkzeug:172.17.0.1 - - [15/May/2021 13:04:42] "GET /1 HTTP/1.1" 200 -
+ERROR:app:15-May-2021 (13:04:45.725958) Failed article access: 1654
+INFO:werkzeug:172.17.0.1 - - [15/May/2021 13:04:45] "GET /1654 HTTP/1.1" 404 -
