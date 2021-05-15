@@ -1,12 +1,21 @@
 import sqlite3
 import logging
 import sys
+from datetime import datetime
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
 
 
-def logger(message):
-    print(message)
+def logInfo(message):
+    dateTimeObj = datetime.now()
+    timestampStr = dateTimeObj.strftime("%d-%b-%Y (%H:%M:%S.%f)")
+    app.logger.info(timestampStr + " " + message)
+
+
+def logError(message):
+    dateTimeObj = datetime.now()
+    timestampStr = dateTimeObj.strftime("%d-%b-%Y (%H:%M:%S.%f)")
+    app.logger.error(timestampStr + " " + message)
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
@@ -50,10 +59,10 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-        app.logger.error("Failed article access: " + str(post_id))
+        logError("Failed article access: " + str(post_id))
         return render_template('404.html'), 404
     else:
-        app.logger.info("Article acccessed: " + str(post_id))
+        logInfo("Article acccessed: " + str(post_id))
         return render_template('post.html', post=post)
 
 # Define the About Us page
@@ -61,7 +70,7 @@ def post(post_id):
 
 @app.route('/about')
 def about():
-    app.logger.info("About page accessed")
+    logInfo("About page accessed")
     return render_template('about.html')
 
 # Degine the Health Checker
@@ -109,7 +118,7 @@ def create():
                                (title, content))
             connection.commit()
             connection.close()
-            app.logger.info("Article created")
+            logInfo("Article created")
             return redirect(url_for('index'))
 
     return render_template('create.html')
