@@ -30,9 +30,9 @@ containerPorts:
 livenessProbe:
   httpGet:
     path: /healthz
-    port: http
+    port: 3111
 
 readinessProbe:
   httpGet:
     path: /healthz
-    port: http
+    port: 3111
