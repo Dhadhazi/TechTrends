@@ -11,7 +11,7 @@ spec:
   source:
     helm:
       valueFiles:
-        - values-staging.yaml
-    path: helm
+      - values-staging.yaml
+    path: helm/
     repoURL: https://github.com/Dhadhazi/TechTrends
     targetRevision: HEAD
